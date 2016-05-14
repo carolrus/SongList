@@ -15,10 +15,15 @@ var activeSong = -1
 
 class SongTableViewController: UITableViewController {
 
+    let imgCount: Int = 10
+    let imgPrefix: String = "img"
+    let jsonName: String = "songs"
+    let textLength = 200
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let jsonFileName: String = "songs"
+        let jsonFileName: String = jsonName
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         
         // Load json db in background thread
@@ -36,7 +41,7 @@ class SongTableViewController: UITableViewController {
     // load and parse data from json file
     func loadJsonWithSongs(jsonFileName: String) -> [[String: AnyObject]]? {
         
-        let jsonObjectName: String = "songs"
+        let jsonObjectName: String = jsonFileName // same name as file name in this case
         if let url = NSBundle.mainBundle().URLForResource(jsonFileName, withExtension: "json")
         {
             if let urlContent = NSData(contentsOfURL: url) {
@@ -44,8 +49,6 @@ class SongTableViewController: UITableViewController {
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
                     if let songs = jsonResult[jsonObjectName] as? [[String: AnyObject]] {
-                        print("Able to parse \(jsonFileName).json")
-                        print(songs.count)
                         
                         return songs
                     }
@@ -73,9 +76,9 @@ class SongTableViewController: UITableViewController {
         for item in jsonData {
             if let title = item["title"] as? String {
                 if let band = item["band"] as? String {
-                    let imgNr = counter % 10
-                    let photo = UIImage(named: "img\(imgNr).png")!
-                    let description = TextGenerator.getRandomText(200)
+                    let imgNr = counter % imgCount
+                    let photo = UIImage(named: imgPrefix + "\(imgNr).png")!
+                    let description = TextGenerator.getRandomText(textLength)
                     if let song = Song(title: title, band: band, photo: photo, description: description) {
                         songs += [song]
                     }
@@ -129,6 +132,8 @@ class SongTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         
+        // This makes sure the table view is up-to-date when returning
+        // from another view that modified the data
         tableView.reloadData()
         
     }
