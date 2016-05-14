@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		798C17B11CE76DF8009AE109 /* TextGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD10111CE4488C007E79EA /* TextGenerator.swift */; };
 		79AD0FCD1CE12789007E79EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD0FCC1CE12789007E79EA /* AppDelegate.swift */; };
 		79AD0FCF1CE12789007E79EA /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD0FCE1CE12789007E79EA /* SongViewController.swift */; };
 		79AD0FD21CE12789007E79EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79AD0FD01CE12789007E79EA /* Main.storyboard */; };
@@ -270,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				798C17B11CE76DF8009AE109 /* TextGenerator.swift in Sources */,
 				79AD0FE51CE1278B007E79EA /* Song_ListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

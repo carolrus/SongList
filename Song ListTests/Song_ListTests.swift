@@ -25,6 +25,15 @@ class Song_ListTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testTextGeneratorRandomTextLength() {
+        // Test if the generated text has proper length
+        let count = 200
+        let randomText = TextGenerator.getRandomText(count)
+        XCTAssertEqual(randomText.characters.count, count)
+    }
+    
+    
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {
