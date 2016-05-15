@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		798C17B11CE76DF8009AE109 /* TextGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD10111CE4488C007E79EA /* TextGenerator.swift */; };
+		798C17E91CE836F1009AE109 /* Songs_List.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 798C17E81CE836F1009AE109 /* Songs_List.xcdatamodel */; };
+		798C17EB1CE83AA9009AE109 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798C17EA1CE83AA9009AE109 /* DataManager.swift */; };
 		79AD0FCD1CE12789007E79EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD0FCC1CE12789007E79EA /* AppDelegate.swift */; };
 		79AD0FCF1CE12789007E79EA /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD0FCE1CE12789007E79EA /* SongViewController.swift */; };
 		79AD0FD21CE12789007E79EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79AD0FD01CE12789007E79EA /* Main.storyboard */; };
-		79AD0FD51CE12789007E79EA /* Song_List.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79AD0FD31CE12789007E79EA /* Song_List.xcdatamodeld */; };
 		79AD0FD71CE12789007E79EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79AD0FD61CE12789007E79EA /* Assets.xcassets */; };
 		79AD0FDA1CE12789007E79EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79AD0FD81CE12789007E79EA /* LaunchScreen.storyboard */; };
 		79AD0FE51CE1278B007E79EA /* Song_ListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD0FE41CE1278B007E79EA /* Song_ListTests.swift */; };
@@ -43,11 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		798C17E81CE836F1009AE109 /* Songs_List.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Songs_List.xcdatamodel; sourceTree = "<group>"; };
+		798C17EA1CE83AA9009AE109 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		79AD0FC91CE12789007E79EA /* Song List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Song List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AD0FCC1CE12789007E79EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79AD0FCE1CE12789007E79EA /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		79AD0FD11CE12789007E79EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		79AD0FD41CE12789007E79EA /* Song_List.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Song_List.xcdatamodel; sourceTree = "<group>"; };
 		79AD0FD61CE12789007E79EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79AD0FD91CE12789007E79EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79AD0FDB1CE12789007E79EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -127,11 +129,12 @@
 				79AD10011CE1C986007E79EA /* img7.png */,
 				79AD10031CE1C9C8007E79EA /* img8.png */,
 				79AD10051CE1CA3A007E79EA /* img9.png */,
-				79AD0FD31CE12789007E79EA /* Song_List.xcdatamodeld */,
+				798C17E81CE836F1009AE109 /* Songs_List.xcdatamodel */,
 				79AD10091CE1EAB1007E79EA /* SongTableViewController.swift */,
 				79AD100B1CE21E98007E79EA /* SongTableViewCell.swift */,
 				79AD100F1CE312DA007E79EA /* Song.swift */,
 				79AD10111CE4488C007E79EA /* TextGenerator.swift */,
+				798C17EA1CE83AA9009AE109 /* DataManager.swift */,
 			);
 			path = "Song List";
 			sourceTree = "<group>";
@@ -257,12 +260,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				798C17E91CE836F1009AE109 /* Songs_List.xcdatamodel in Sources */,
+				798C17EB1CE83AA9009AE109 /* DataManager.swift in Sources */,
 				79AD10101CE312DA007E79EA /* Song.swift in Sources */,
 				79AD0FCF1CE12789007E79EA /* SongViewController.swift in Sources */,
 				79AD0FCD1CE12789007E79EA /* AppDelegate.swift in Sources */,
 				79AD100C1CE21E98007E79EA /* SongTableViewCell.swift in Sources */,
 				79AD10121CE4488C007E79EA /* TextGenerator.swift in Sources */,
-				79AD0FD51CE12789007E79EA /* Song_List.xcdatamodeld in Sources */,
 				79AD100A1CE1EAB1007E79EA /* SongTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,19 +472,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		79AD0FD31CE12789007E79EA /* Song_List.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				79AD0FD41CE12789007E79EA /* Song_List.xcdatamodel */,
-			);
-			currentVersion = 79AD0FD41CE12789007E79EA /* Song_List.xcdatamodel */;
-			path = Song_List.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 79AD0FC11CE12789007E79EA /* Project object */;
 }

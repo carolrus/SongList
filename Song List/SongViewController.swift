@@ -19,13 +19,14 @@ class SongViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if activeSong != -1 {
+        if DataManager.shared.activeSong != -1 {
             
             // Set data for UI elements accordingly for the active song
-            imageView.image = songList[activeSong].photo
-            titleLabel.text = songList[activeSong].title
-            bandLabel.text = songList[activeSong].band
-            descriptionLabel.text = songList[activeSong].description
+            let song = DataManager.shared.songList[DataManager.shared.activeSong]
+            imageView.image = UIImage(named: song.photoPath)
+            titleLabel.text = song.title
+            bandLabel.text = song.band
+            descriptionLabel.text = song.description
             
         }
     }

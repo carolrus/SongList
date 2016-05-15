@@ -13,14 +13,14 @@ class Song {
     
     var title: String
     var band: String
-    var photo: UIImage?
+    var photoPath: String
     var description: String
     
-    init?(title: String, band: String, photo: UIImage?, description: String) {
+    init?(title: String, band: String, photoPath: String, description: String) {
         // Initialize stored properties.
         self.title = title
         self.band = band
-        self.photo = photo
+        self.photoPath = photoPath
         self.description = description
         
         // Initialization should fail if there is no title or no band.

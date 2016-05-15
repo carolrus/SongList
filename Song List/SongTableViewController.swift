@@ -9,86 +9,24 @@
 
 import UIKit
 
-var songList = [Song]()
-
-var activeSong = -1
-
 class SongTableViewController: UITableViewController {
-
-    let imgCount: Int = 10
-    let imgPrefix: String = "img"
-    let jsonName: String = "songs"
-    let textLength = 200
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let jsonFileName: String = jsonName
+        let jsonFileName: String = DataManager.shared.jsonName
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         
         // Load json db in background thread
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            if let jsonData = self.loadJsonWithSongs(jsonFileName) {
-                songList = self.populateSongList(jsonData)!
+            if let jsonData = DataManager.shared.loadJsonWithSongs(jsonFileName) {
+                DataManager.shared.songList = DataManager.shared.populateSongList(jsonData)!
             }
             dispatch_async(dispatch_get_main_queue()) {
                 // Update table view in UI thread
                 self.tableView.reloadData()
             }
         }
-    }
-    
-    // load and parse data from json file
-    func loadJsonWithSongs(jsonFileName: String) -> [[String: AnyObject]]? {
-        
-        let jsonObjectName: String = jsonFileName // same name as file name in this case
-        if let url = NSBundle.mainBundle().URLForResource(jsonFileName, withExtension: "json")
-        {
-            if let urlContent = NSData(contentsOfURL: url) {
-                do {
-                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
-                    
-                    if let songs = jsonResult[jsonObjectName] as? [[String: AnyObject]] {
-                        
-                        return songs
-                    }
-                } catch {
-                    print("Unable to parse \(jsonFileName).json")
-                }
-            } else {
-                print("Not able to load \(jsonFileName).json.")
-            }
-        } else {
-            
-            print("\(jsonFileName).json NOT found")
-            
-        }
-        
-        return nil
-    }
-    
-    // populate the songs array with data from json db
-    func populateSongList(jsonData: [[String: AnyObject]]) -> [Song]? {
-        
-        var songs = [Song]()
-        var counter = 0
-        
-        for item in jsonData {
-            if let title = item["title"] as? String {
-                if let band = item["band"] as? String {
-                    let imgNr = counter % imgCount
-                    let photo = UIImage(named: imgPrefix + "\(imgNr).png")!
-                    let description = TextGenerator.getRandomText(textLength)
-                    if let song = Song(title: title, band: band, photo: photo, description: description) {
-                        songs += [song]
-                    }
-                }
-            }
-            counter += 1
-        }
-        
-        return songs
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,18 +43,18 @@ class SongTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return the number of rows
-        return songList.count
+        return DataManager.shared.songList.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SongTableViewCell", forIndexPath: indexPath) as! SongTableViewCell
         
         // Fetches the appropriate song
-        let song = songList[indexPath.row]
+        let song = DataManager.shared.songList[indexPath.row]
         
         cell.titleLabel.text = song.title
         cell.bandLabel.text = song.band
-        cell.songImage.image = song.photo
+        cell.songImage.image = UIImage(named: song.photoPath)
 
         return cell
     }
@@ -124,7 +62,7 @@ class SongTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         
         // Set the active song
-        activeSong = indexPath.row
+        DataManager.shared.activeSong = indexPath.row
         
         return indexPath
         
