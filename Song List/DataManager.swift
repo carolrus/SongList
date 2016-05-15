@@ -25,6 +25,7 @@ public class DataManager
     
     // Const int showing the length of generated text for song description
     let textLength: Int = 200
+
     
     // VARIABLES
     // An Int to store selected song
@@ -32,7 +33,9 @@ public class DataManager
     
     // An array to store the list of songs
     var songList = [Song]()
+
     
+    // FUNCTIONS
     // load and parse data from json file
     func loadJsonWithSongs(jsonFileName: String) -> [[String: AnyObject]]? {
         

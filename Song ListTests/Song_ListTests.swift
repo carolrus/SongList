@@ -20,10 +20,6 @@ class Song_ListTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
     
     func testTextGeneratorRandomTextLength() {
         // Test if the generated text has proper length
@@ -32,6 +28,13 @@ class Song_ListTests: XCTestCase {
         XCTAssertEqual(randomText.characters.count, count)
     }
     
+    func testDataManagerLoadJsonItemsCount() {
+        // Test if <count> items are loaded from json db
+        let count = 100
+        let jsonData = DataManager.shared.loadJsonWithSongs(DataManager.shared.jsonName)
+        XCTAssertEqual(jsonData?.count, count)
+    }
+
     
     
     func testPerformanceExample() {

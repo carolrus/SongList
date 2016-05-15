@@ -10,6 +10,8 @@
 		798C17B11CE76DF8009AE109 /* TextGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD10111CE4488C007E79EA /* TextGenerator.swift */; };
 		798C17E91CE836F1009AE109 /* Songs_List.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 798C17E81CE836F1009AE109 /* Songs_List.xcdatamodel */; };
 		798C17EB1CE83AA9009AE109 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798C17EA1CE83AA9009AE109 /* DataManager.swift */; };
+		798C17EC1CE84A70009AE109 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798C17EA1CE83AA9009AE109 /* DataManager.swift */; };
+		798C17ED1CE84DC6009AE109 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD100F1CE312DA007E79EA /* Song.swift */; };
 		79AD0FCD1CE12789007E79EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD0FCC1CE12789007E79EA /* AppDelegate.swift */; };
 		79AD0FCF1CE12789007E79EA /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD0FCE1CE12789007E79EA /* SongViewController.swift */; };
 		79AD0FD21CE12789007E79EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79AD0FD01CE12789007E79EA /* Main.storyboard */; };
@@ -275,7 +277,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				798C17ED1CE84DC6009AE109 /* Song.swift in Sources */,
 				798C17B11CE76DF8009AE109 /* TextGenerator.swift in Sources */,
+				798C17EC1CE84A70009AE109 /* DataManager.swift in Sources */,
 				79AD0FE51CE1278B007E79EA /* Song_ListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
