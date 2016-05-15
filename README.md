@@ -14,7 +14,7 @@ Each cell in table view is designed to show song's photo, title, and band. The s
 
 Shared data between views is stored via a singleton class.
 
-The data from JSON db is loaded into an array when app starts. At the same time, it is added to the array a description random text and the path to a photo for each song.
+The data from JSON db is loaded into an array when app starts. At the same time, it is added to the array a description random text and the path to a photo for each song. Background thread is used to populate the array with songs in order to avoid UI freezing.
 
 Auto layout constraints have been used to make the UI valid for different screen sizes, including portrait/landscape.
 
