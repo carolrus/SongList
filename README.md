@@ -16,7 +16,7 @@ Shared data between views is stored via a singleton class.
 
 The data from JSON db is loaded into an array when app starts.
 
-Auto layout constraints have been used to make the valid for different screen sizes, including portrait/landscape.
+Auto layout constraints have been used to make the UI valid for different screen sizes, including portrait/landscape.
 
 ## TODO
 * Move from JSON to Core Data
