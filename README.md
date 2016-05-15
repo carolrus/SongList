@@ -14,12 +14,17 @@ Each cell in table view is designed to show song's photo, title, and band. The s
 
 Shared data between views is stored via a singleton class.
 
-The data from JSON db is loaded into an array when app starts.
+The data from JSON db is loaded into an array when app starts. At the same time, it is added to the array a description random text and the path to a photo for each song.
 
 Auto layout constraints have been used to make the UI valid for different screen sizes, including portrait/landscape.
 
+## Unit Tests
+There are 2, currently, and they test:
+* The length of the generated random text
+* The number of items loaded from JSON db
+
 ## TODO
-* Move from JSON to Core Data
+* Move from JSON to Core Data (the app already has the support for Core Data)
 * Implement possibility to add and delete items
 
 ## Compatibility
